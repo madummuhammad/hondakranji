@@ -19,6 +19,34 @@ class Home extends CI_Controller {
 		$this->M_Home->edit_about();
 	}
 
+	public function section_wa_1()
+	{
+		$this->M_Home->edit_section_wa_1();
+	}
+
+	public function section_wa_2()
+	{
+		$this->M_Home->edit_section_wa_2();
+	}
+
+	public function section_wa_3()
+	{
+		$this->M_Home->edit_section_wa_3();
+	}
+
+	public function mengapa_kami()
+	{
+		if ($this->input->post('_patch') !== NULL) {
+			$this->M_Mengapa_Kami->update();
+		} elseif ($this->input->post('_post') !== NULL) {
+			$this->M_Mengapa_Kami->create();
+		} elseif ($this->input->post('_get') !== NULL) {
+			$this->M_Mengapa_Kami->delete();
+		} else {
+			redirect(admin_url());
+		}
+	}
+
 	public function layanan()
 	{
 		if ($this->input->post('_patch') !== NULL) {

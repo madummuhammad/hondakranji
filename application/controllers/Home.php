@@ -16,7 +16,10 @@ class Home extends CI_Controller {
 		$data['referral']=$referral;
 		$data['home']=$this->M_Home->index();
 		$data['about']=$this->M_Home->about();
-		$data['service']=$this->M_Home->service();
+		$data['section_wa_1']=$this->M_Website_Eng->section_wa_1();
+		$data['section_wa_2']=$this->M_Website_Eng->section_wa_2();
+		$data['section_wa_3']=$this->M_Website_Eng->section_wa_3();
+		$data['mengapa_kami']=$this->M_Website_Eng->mengapa_kami();
 		$data['portofolio']=$this->M_Home->portofolio();
 		$data['team']=$this->M_Home->team();
 		$data['partner']=$this->M_Home->partner();

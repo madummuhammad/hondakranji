@@ -41,32 +41,18 @@ class M_Footer extends CI_Model {
 	{
 		$nama_perusahaan=$this->input->post('nama_perusahaan');
 		$keterangan=$this->input->post('keterangan');
-		$twiter=$this->input->post('twiter');
-		$telegram=$this->input->post('telegram');
-		$bahasa=$this->input->post('_bahasa');
 
 		$rules=[
 			rules_array('nama_perusahaan','required'),
-			rules_array('keterangan','required'),
-			rules_array('twiter','required'),
-			rules_array('telegram','required')
+			rules_array('keterangan','required')
 		];
 
 		$validasi=$this->form_validation->set_rules(rules($rules));
 
 		$data=[
 			'nama_perusahaan'=>$nama_perusahaan,
-			'twiter'=>$twiter,
 			'keterangan'=>$keterangan,
-			'telegram'=>$telegram
 		];
-
-		$sosmed=[
-			'nama_perusahaan'=>$nama_perusahaan,
-			'twiter'=>$twiter,
-			'telegram'=>$telegram
-		];
-		
 		if ($validasi->run()==false) {
 			$toast=[
 				'request'=>'footer',
@@ -74,37 +60,17 @@ class M_Footer extends CI_Model {
 				'title'=>'Edit Section Footer Berhasil'
 			];
 			$this->session->set_flashdata($toast);
-			redirect('website/'.$bahasa);
+			redirect('website');
 		} else {
-			if ($bahasa=='indonesia') {
-				$this->db->where('id',1);
-				$this->db->update('footer_ind',$data);
-
-				$this->db->where('id',1);
-				$this->db->update('footer_eng',$sosmed);
-				$toast=[
-					'request'=>'footer',
-					'icon'=>'success',
-					'title'=>'Edit Section Footer Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/indonesia');
-			} elseif ($bahasa=='english') {
-				$this->db->where('id',1);
-				$this->db->update('footer_eng',$data);
-
-				$this->db->where('id',1);
-				$this->db->update('footer_ind',$sosmed);
-				$toast=[
-					'request'=>'footer',
-					'icon'=>'success',
-					'title'=>'Edit Section Footer Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/english');
-			} else{
-				redirect(admin_url());
-			}
+			$this->db->where('id',1);
+			$this->db->update('footer_eng',$data);
+			$toast=[
+				'request'=>'footer',
+				'icon'=>'success',
+				'title'=>'Edit Section Footer Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
 		}
 	}
 

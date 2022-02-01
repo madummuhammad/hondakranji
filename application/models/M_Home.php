@@ -131,35 +131,145 @@ class M_Home extends CI_Model {
 			$this->session->set_flashdata($toast);
 			redirect('website/'.$bahasa);
 		} else {
-			if ($bahasa=='indonesia') {
-				$this->db->update('home_ind',$data);
-				if ($gambar !== NULL) {
-					unlink(FCPATH . 'assets/img/main/'.$gambar_lama['gambar']);
-					$this->db->update('home_eng',['gambar'=>$gambar]);
-				}
-				$toast=[
-					'request'=>'banner',
-					'icon'=>'success',
-					'title'=>'Edit Banner Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/indonesia');
-			} elseif ($bahasa=='english') {
-				$this->db->update('home_eng',$data);
-				if ($gambar !== NULL) {
-					unlink(FCPATH . 'assets/img/main/'.$gambar_lama['gambar']);
-					$this->db->update('home_ind',['gambar'=>$gambar]);
-				}
-				$toast=[
-					'request'=>'banner',
-					'icon'=>'success',
-					'title'=>'Edit Banner Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/english');
-			} else{
-				redirect(admin_url());
+			$this->db->update('home_eng',$data);
+			if ($gambar !== NULL) {
+				unlink(FCPATH . 'assets/img/main/'.$gambar_lama['gambar']);
 			}
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'success',
+				'title'=>'Edit Banner Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		}
+	}
+
+	public function edit_section_wa_1()
+	{
+		$this->db->where('id',1);
+		$judul=$this->input->post('judul');
+		$button=$this->input->post('button');
+		$wa=$this->input->post('wa');
+
+		$rules=[
+			rules_array('judul','required'),
+			rules_array('button','required'),
+			rules_array('wa','required')
+		];
+
+		$validasi=$this->form_validation->set_rules(rules($rules));
+
+		$data=[
+			'judul'=>$judul,
+			'button'=>$button,
+			'wa'=>$wa
+		];
+
+		if ($validasi->run()==false) {
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'error',
+				'title'=>'Edit Section Wa 1 Gagal'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website/'.$bahasa);
+		} else {
+			$this->db->where('id',1);
+			$this->db->update('section-wa-1',$data);
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'success',
+				'title'=>'Edit Section Wa 1 Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		}
+	}
+
+	public function edit_section_wa_2()
+	{
+		$judul=$this->input->post('judul');
+		$tagline=form('tagline');
+		$button=$this->input->post('button');
+		$wa=$this->input->post('wa');
+
+		$rules=[
+			rules_array('judul','required'),
+			rules_array('button','required'),
+			rules_array('tagline','required'),
+			rules_array('wa','required')
+		];
+
+		$validasi=$this->form_validation->set_rules(rules($rules));
+
+		$data=[
+			'judul'=>$judul,
+			'tagline'=>$tagline,
+			'button'=>$button,
+			'wa'=>$wa
+		];
+
+		if ($validasi->run()==false) {
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'error',
+				'title'=>'Edit Section Wa 2 Gagal'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		} else {
+			$this->db->where('id',1);
+			$this->db->update('section-wa-2',$data);
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'success',
+				'title'=>'Edit Section Wa 2 Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		}
+	}
+
+	public function edit_section_wa_3()
+	{
+		$this->db->where('id',1);
+		$judul=$this->input->post('judul');
+		$button=$this->input->post('button');
+		$wa=$this->input->post('wa');
+
+		$rules=[
+			rules_array('judul','required'),
+			rules_array('button','required'),
+			rules_array('wa','required')
+		];
+
+		$validasi=$this->form_validation->set_rules(rules($rules));
+
+		$data=[
+			'judul'=>$judul,
+			'button'=>$button,
+			'wa'=>$wa
+		];
+
+		if ($validasi->run()==false) {
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'error',
+				'title'=>'Edit Section Wa 3 Gagal'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website/'.$bahasa);
+		} else {
+			$this->db->where('id',1);
+			$this->db->update('section-wa-3',$data);
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'success',
+				'title'=>'Edit Section Wa 3 Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
 		}
 	}
 
@@ -172,14 +282,11 @@ class M_Home extends CI_Model {
 		$gambar_lama=$this->db->get('about_eng')->row_array();
 
 		$judul=$this->input->post('judul');
-		$tagline=$this->input->post('tagline');
 		$content=$this->input->post('content');
-		$bahasa=$this->input->post('_bahasa');
 		$gambar=upload_gambar($path, $type, $file_name);
 
 		$rules=[
 			rules_array('judul','required'),
-			rules_array('tagline','required'),
 			rules_array('content','required')
 		];
 
@@ -188,13 +295,11 @@ class M_Home extends CI_Model {
 		if ($gambar==NULL) {
 			$data=[
 				'judul'=>$judul,
-				'tagline'=>$tagline,
 				'content'=>$content,
 			];
 		} else {
 			$data=[
 				'judul'=>$judul,
-				'tagline'=>$tagline,
 				'content'=>$content,
 				'gambar'=>$gambar
 			];
@@ -207,37 +312,19 @@ class M_Home extends CI_Model {
 				'title'=>'Edit Section About Gagal'
 			];
 			$this->session->set_flashdata($toast);
-			redirect('website/'.$bahasa);
+			redirect('website');
 		} else {
-			if ($bahasa=='indonesia') {
-				$this->db->update('about_ind',$data);
-				if ($gambar !== NULL) {
-					unlink(FCPATH . 'assets/img/about/'.$gambar_lama['gambar']);
-					$this->db->update('about_eng',['gambar'=>$gambar]);
-				}
-				$toast=[
-					'request'=>'about',
-					'icon'=>'success',
-					'title'=>'Edit Section About Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/indonesia');
-			} elseif ($bahasa=='english') {
-				$this->db->update('about_eng',$data);
-				if ($gambar !== NULL) {
-					unlink(FCPATH . 'assets/img/about/'.$gambar_lama['gambar']);
-					$this->db->update('about_ind',['gambar'=>$gambar]);
-				}
-				$toast=[
-					'request'=>'about',
-					'icon'=>'success',
-					'title'=>'Edit Section About Berhasil'
-				];
-				$this->session->set_flashdata($toast);
-				redirect('website/english');
-			} else{
-				redirect(admin_url());
+			$this->db->update('about_eng',$data);
+			if ($gambar !== NULL) {
+				unlink(FCPATH . 'assets/img/about/'.$gambar_lama['gambar']);
 			}
+			$toast=[
+				'request'=>'about',
+				'icon'=>'success',
+				'title'=>'Edit Section About Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
 		}
 	}
 
