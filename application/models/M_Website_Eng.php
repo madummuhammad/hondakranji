@@ -15,9 +15,27 @@ class M_Website_Eng extends CI_Model {
 		return $data;
 	}
 
-	public function service()
+	public function section_wa_1()
 	{
-		$data=$this->db->get('service_eng')->result_array();
+		$data=$this->db->get('section-wa-1')->row_array();
+		return $data;
+	}
+
+	public function section_wa_2()
+	{
+		$data=$this->db->get('section-wa-2')->row_array();
+		return $data;
+	}
+
+	public function section_wa_3()
+	{
+		$data=$this->db->get('section-wa-3')->row_array();
+		return $data;
+	}
+
+	public function mengapa_kami()
+	{
+		$data=$this->db->get('mengapa_kami')->result_array();
 		return $data;
 	}
 

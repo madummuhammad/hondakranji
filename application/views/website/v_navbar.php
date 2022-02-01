@@ -33,9 +33,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#about">Layanan</a></li>
-          <li><a class="nav-link scrollto" href="#services">Best Honda</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Hubungi Kami</a></li>
+          <li><a class="nav-link scrollto" href="#mengapa-kami">Mengapa Kami</a></li>
+          <li><a class="nav-link scrollto" href="#best-honda">Best Honda</a></li>
+          <li><a class="nav-link scrollto" href="#hubungi-kami">Hubungi Kami</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

@@ -8,10 +8,10 @@ Content body start
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Order Baru</h4>
+                        <!-- <h4 class="card-title">Order Baru</h4> -->
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <!-- <div class="table-responsive">
                             <table class="table mb-0">
                                 <thead>
                                     <tr>
@@ -48,7 +48,7 @@ Content body start
                                    <?php endforeach ?>
                                </tbody>
                            </table>
-                       </div>
+                       </div> -->
                    </div>
                </div>
            </div>

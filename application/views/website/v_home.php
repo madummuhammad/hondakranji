@@ -158,25 +158,26 @@
     <!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="service" class="services">
 
       <div class="container d-flex justify-content-center" data-aos="fade-up">
         <iframe width="100%" height="500" src="https://www.youtube.com/embed/aS_Ma8yVy64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>X
       </div>
 
     </section><!-- End Services Section -->
-    <section id="wa" class="wa">
+
+    <section id="section-wa-1" class="wa">
       <div class="container d-flex flex-column justify-content-center">
-        <h2 class="text-center">Mau tau lebih lanjut?</h2>
-        <a  class="btn-wa scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-          <span><i class="fab fa-whatsapp"></i> Hubungi Kami</span>
+        <h2 class="text-center"><?php echo $section_wa_1['judul'] ?></h2>
+        <a href="" class="btn-wa scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+          <span><i class="fab fa-whatsapp"></i> <?php echo $section_wa_1['button'] ?></span>
           <!-- <i class="bi bi-arrow-right"></i> -->
         </a>
       </div>
     </section>
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    <section id="mengapa-kami" class="pricing">
 
       <div class="container" data-aos="fade-up">
 
@@ -185,18 +186,19 @@
           <svg width="221" height="4" viewBox="0 0 221 4" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="221" height="4" fill="#FF8A00"/>
           </svg>
-
         </header>
         <div class="row gy-4 d-flex justify-content-center" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="box">
-              <h2>Pembayaran Mudah</h2>
-              <div class="icon">
-                <i class="far fa-money-bill-alt"></i>
+          <?php foreach ($mengapa_kami as $key => $value): ?>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+              <div class="box">
+                <h2><?php echo $value['judul'] ?></h2>
+                <div class="icon">
+                  <?php echo $value['icon'] ?>
+                </div>
+                <p><?php echo $value['content'] ?></p>
               </div>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta harum ullam pariatur sunt et, quisquam modi qui voluptas at, quibusdam magnam eligendi rerum accusantium odit nulla quod maxime magni quidem!</p>
             </div>
-          </div>
+          <?php endforeach ?>
         </div>
       </div>
 
@@ -204,7 +206,7 @@
     <!-- End Pricing Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <section id="best-honda" class="portfolio">
 
       <div class="container" data-aos="fade-up">
 
@@ -234,27 +236,22 @@
 
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="wa-footer1" class="wa">
-
+    <section id="wa-footer1" class="wa section-wa-2">
       <div class="container" data-aos="fade-up">
-      <!--   <header class="section-header">
-          <img src="<?php echo base_url('assets/img/').$contact['gambar'] ?>" alt="">
-        </header> -->
         <div class="row gy-4">
           <div class="col-lg-12">
-            <h2 class="text-center">Tunggu apa lagi?</h2>
-            <h3 class="text-center">Konsultasi dengan kami gratis</h3>
+            <h2 class="text-center"><?php echo $section_wa_2['judul'] ?></h2>
+            <h3 class="text-center"><?php echo $section_wa_2['tagline'] ?></h3>
           </div>
           <div class="col-lg-12 d-flex justify-content-center">
-            <a class="btn-wa px-5 py-3"><i  class="fab fa-whatsapp "></i>Hubungi Kami</a>
+            <a class="btn-wa px-5 py-3"><i  class="fab fa-whatsapp "></i> <?php echo $section_wa_2['button'] ?></a>
           </div>
         </div>
       </div>
 
     </section><!-- End Contact Section -->
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="hubungi-kami" class="contact">
 
       <div class="container" data-aos="fade-up">
 
@@ -339,17 +336,13 @@
     </section><!-- End Contact Section -->
     <!-- ======= Contact Section ======= -->
     <section id="wa-footer1" class="wa">
-
       <div class="container" data-aos="fade-up">
-      <!--   <header class="section-header">
-          <img src="<?php echo base_url('assets/img/').$contact['gambar'] ?>" alt="">
-        </header> -->
         <div class="row gy-4">
           <div class="col-lg-12">
-            <h2 class="text-center">Kirim Pesan Lewat WA</h2>
+            <h2 class="text-center"><?php echo $section_wa_3['judul'] ?></h2>
           </div>
           <div class="col-lg-12 d-flex justify-content-center">
-            <a class="btn-wa px-5 py-3"><i  class="fab fa-whatsapp "></i>Hubungi Kami</a>
+            <a class="btn-wa px-5 py-3"><i  class="fab fa-whatsapp "></i><?php echo $section_wa_3['button'] ?></a>
           </div>
         </div>
       </div>
@@ -365,29 +358,19 @@
         <div class="row gy-4 d-flex justify-content-center">
           <div class="col-lg-5 col-md-12 footer-info d-flex flex-column align-items-center">
             <a class="logo d-flex align-items-center">
-              <!-- <img src="assets/img/logo.png" alt=""> -->
-              <span><?php echo $footer['nama_perusahaan'] ?></span>
+              <span style="color: black;"><?php echo $footer['nama_perusahaan'] ?></span>
             </a>
             <p class="text-center"><?php echo $footer['keterangan'] ?></p>
-            <!-- <div class="social-links mt-3">
-              <a href="<?php echo $footer['twiter'] ?>" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="<?php echo $footer['telegram'] ?>" target="_black" class="linkedin"><i class="bi bi-telegram"></i></a>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="copyright">
+      <div class="copyright" style="color: black;">
         &copy; Copyright <strong><span>Honda Bekasi</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       </div>
     </div>
   </footer><!-- End Footer -->

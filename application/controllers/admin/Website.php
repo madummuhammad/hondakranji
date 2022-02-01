@@ -8,23 +8,14 @@ class Website extends CI_Controller {
 		is_logged_in_admin();
 	}
 
-	public function indonesia()
-	{
-		$data['home']=$this->M_Website_Ind->index();
-		$data['about']=$this->M_Website_Ind->about();
-		$data['service']=$this->M_Website_Ind->service();
-		$data['portofolio']=$this->M_Website_Ind->portofolio();
-		$data['team']=$this->M_Website_Ind->team();
-		$data['partner']=$this->M_Website_Ind->partner();
-		$data['contact']=$this->M_Website_Ind->kontak();
-		$data['footer']=$this->M_Website_Ind->footer();
-		$this->load->view('admin/website/v_home',$data);
-	}
-	public function english()
+	public function index()
 	{
 		$data['home']=$this->M_Website_Eng->index();
 		$data['about']=$this->M_Website_Eng->about();
-		$data['service']=$this->M_Website_Eng->service();
+		$data['section_wa_1']=$this->M_Website_Eng->section_wa_1();
+		$data['section_wa_2']=$this->M_Website_Eng->section_wa_2();
+		$data['section_wa_3']=$this->M_Website_Eng->section_wa_3();
+		$data['mengapa_kami']=$this->M_Website_Eng->mengapa_kami();
 		$data['portofolio']=$this->M_Website_Eng->portofolio();
 		$data['team']=$this->M_Website_Eng->team();
 		$data['partner']=$this->M_Website_Eng->partner();
