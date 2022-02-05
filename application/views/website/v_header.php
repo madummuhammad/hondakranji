@@ -30,6 +30,12 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendor/toastr/css/toastr.min.css">
+
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/owlcarousel/assets/owl.theme.default.min.css">
+
+  <script src="<?php echo base_url() ?>assets/vendors/jquery.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/owlcarousel/owl.carousel.js"></script>
 </head>
 
 <body>
