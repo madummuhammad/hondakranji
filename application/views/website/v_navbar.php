@@ -8,15 +8,6 @@
       <div class="right d-flex justify-content-between">
         <div class="media-sosial d-flex justify-content-between">
           <div class="header-icon mx-2">
-            <i class="fab fa-facebook-square"></i>
-          </div>
-          <div class="header-icon mx-2">
-            <i class="fab fa-twitter-square"></i>
-          </div>
-          <div class="header-icon mx-2">
-            <i class="fab fa-linkedin"></i>
-          </div>
-          <div class="header-icon mx-2">
             <i class="fab fa-instagram-square"></i>
           </div>
         </div>
@@ -33,6 +24,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#promosi">Promosi</a></li>
           <li><a class="nav-link scrollto" href="#mengapa-kami">Mengapa Kami</a></li>
           <li><a class="nav-link scrollto" href="#best-honda">Best Honda</a></li>
           <li><a class="nav-link scrollto" href="#hubungi-kami">Hubungi Kami</a></li>

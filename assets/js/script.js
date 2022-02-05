@@ -37,8 +37,12 @@ $(document).ready(function(){
 	$('#verifikasi [data-dismiss="modal"]').on('click',function(){
 		$("#verifikasi").modal('hide');
 	});
-
-	
-
-
+});
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		stagePadding: 50,
+		loop:true,
+		margin:10,
+		nav:true,
+	});
 });

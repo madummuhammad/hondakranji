@@ -165,6 +165,36 @@
       </div>
 
     </section><!-- End Services Section -->
+    <!-- ======= Testimonials Section ======= -->
+    <section id="promosi" class="testimonials">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>PROMOSI</h2>
+        </header>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide p-3">
+              <a href="<?php echo base_url('assets/img/poster/satu.jpg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Program Penjualan New Year, New Deals"><img src="<?php echo base_url('assets/img/poster/satu.jpg') ?>" class="img-thumbnail" alt=""></a>
+            </div>
+            <div class="swiper-slide p-3">
+              <a href="<?php echo base_url('assets/img/poster/dua.jpeg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title='Program Purna Jual “Paket Hemat Mini”'><img src="<?php echo base_url('assets/img/poster/dua.jpeg') ?>" class="img-thumbnail" alt=""></a>
+            </div>
+            <div class="swiper-slide p-3">
+              <a href="<?php echo base_url('assets/img/poster/tiga.jpg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Dapatkan Tampilan Lebih Ekslusif dengan Honda Options!"><img src="<?php echo base_url('assets/img/poster/tiga.jpg') ?>" class="img-thumbnail" alt=""></a>
+            </div>
+            <div class="swiper-slide p-3">
+              <a href="<?php echo base_url('assets/img/poster/empat.png') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Let’s Enhance Your Honda City Hatchback RS Sporty Look with Modulo Accessories"><img src="<?php echo base_url('assets/img/poster/empat.png') ?>" class="img-thumbnail" alt=""></a>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- End Testimonials Section -->
 
     <section id="section-wa-1" class="wa">
       <div class="container d-flex flex-column justify-content-center">
@@ -175,7 +205,6 @@
         </a>
       </div>
     </section>
-
     <!-- ======= Pricing Section ======= -->
     <section id="mengapa-kami" class="pricing">
 
@@ -189,7 +218,7 @@
         </header>
         <div class="row gy-4 d-flex justify-content-center" data-aos="fade-left">
           <?php foreach ($mengapa_kami as $key => $value): ?>
-            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-delay="100">
               <div class="box">
                 <h2><?php echo $value['judul'] ?></h2>
                 <div class="icon">
@@ -204,7 +233,134 @@
 
     </section>
     <!-- End Pricing Section -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
 
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Model</h2>
+        </header>
+
+        <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="<?php echo base_url() ?>assets/img/product/satu.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>New Honda Mobilio</h4>
+                <div class="portfolio-links">
+                  <a href="<?php echo base_url() ?>assets/img/product/satu.png" data-gallery="portfolioGallery" class="model-lightbox" title="New Honda Mobilio"><i class="bi bi-plus"></i></a>
+                  <a href="#mobilio" data-toggle="modal" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-model d-flex justify-content-center mt-2">
+              <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                <p class="custom-font-sm">Harga mulai dari</p>
+                <p class="custom-text-bold">Rp. 500.000.000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="mobilio" data-aos="fade-in" data-aos-delay="100">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="custom-modal-header">
+              <a type="button" class="close text-white custom-modal-close" data-dismiss="modal"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="20" height="20"><g><g><path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306C514.019,27.23,514.019,14.135,505.943,6.058z" fill="#FFFFFF"></path></g></g><g><g><path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z" fill="#FFFFFF"></path></g></g></svg></a>
+              <img src="<?php echo base_url('assets/img/logo/mobilio-logo.png') ?>" alt="">
+            </div>
+            <div class="modal-body">
+              <div class="varian-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide p-3">
+                    <div class="varian-item">
+                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-1.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-1.png') ?>" class="img-fluid" alt=""></a>
+                      <div class="footer-model d-flex justify-content-center mt-2">
+                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                          <p class="custom-font-sm">Harga</p>
+                          <p class="custom-text-bold">Rp. 500.000.000</p>
+                        </div>
+                      </div>
+                      <ul class="text-dark">
+                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
+                        <li>5 M/T</li>
+                        <li>15" Alloy Wheel</li>
+                        <li>Halogen Projector Headlamp with LED DRL</li>
+                        <li>6.2" Resistive Touchscreen Display Audio</li>
+                        <li>Fog Lamp</li>
+                        <li>Keyless Entry</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide p-3">
+                    <div class="varian-item">
+                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-2.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title='Rp. 500.000.000'><img src="<?php echo base_url('assets/img/product/varian-mobilio-2.png') ?>" class="img-fluid" alt=""></a>
+                      <div class="footer-model d-flex justify-content-center mt-2">
+                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                          <p class="custom-font-sm">Harga</p>
+                          <p class="custom-text-bold">Rp. 500.000.000</p>
+                        </div>
+                      </div>
+                      <ul class="text-dark">
+                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
+                        <li>5 M/T</li>
+                        <li>15" Alloy Wheel</li>
+                        <li>Halogen Projector Headlamp with LED DRL</li>
+                        <li>6.2" Resistive Touchscreen Display Audio</li>
+                        <li>Fog Lamp</li>
+                        <li>Keyless Entry</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide p-3">
+                    <div class="varian-item">
+                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-3.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-3.png') ?>" class="img-fluid" alt=""></a>
+                      <div class="footer-model d-flex justify-content-center mt-2">
+                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                          <p class="custom-font-sm">Harga</p>
+                          <p class="custom-text-bold">Rp. 500.000.000</p>
+                        </div>
+                      </div>
+                      <ul class="text-dark">
+                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
+                        <li>5 M/T</li>
+                        <li>15" Alloy Wheel</li>
+                        <li>Halogen Projector Headlamp with LED DRL</li>
+                        <li>6.2" Resistive Touchscreen Display Audio</li>
+                        <li>Fog Lamp</li>
+                        <li>Keyless Entry</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide p-3">
+                    <div class="varian-item">
+                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-4.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-4.png') ?>" class="img-fluid" alt=""></a>
+                      <div class="footer-model d-flex justify-content-center mt-2">
+                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                          <p class="custom-font-sm">Harga</p>
+                          <p class="custom-text-bold">Rp. 500.000.000</p>
+                        </div>
+                      </div>
+                      <ul class="text-dark">
+                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
+                        <li>5 M/T</li>
+                        <li>15" Alloy Wheel</li>
+                        <li>Halogen Projector Headlamp with LED DRL</li>
+                        <li>6.2" Resistive Touchscreen Display Audio</li>
+                        <li>Fog Lamp</li>
+                        <li>Keyless Entry</li>
+                      </ul>
+                    </div>
+                  </div>          
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Portfolio Section -->
     <!-- ======= Portfolio Section ======= -->
     <section id="best-honda" class="portfolio">
 
@@ -224,7 +380,6 @@
                   <p><?php echo $value['content'] ?></p>
                   <div class="portfolio-links">
                     <a href="<?php echo base_url('assets/img/portfolio/').$value['gambar'] ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="<?php echo $value['judul'] ?>"><i class="bi bi-plus"></i></a>
-                    <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
                   </div>
                 </div>
               </div>
@@ -335,7 +490,7 @@
 
     </section><!-- End Contact Section -->
     <!-- ======= Contact Section ======= -->
-    <section id="wa-footer1" class="wa">
+    <section id="wa-footer1" class="wa-footer">
       <div class="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-12">
@@ -350,27 +505,48 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
+
     <div class="footer-top">
       <div class="container">
-        <div class="row gy-4 d-flex justify-content-center">
-          <div class="col-lg-5 col-md-12 footer-info d-flex flex-column align-items-center">
-            <a class="logo d-flex align-items-center">
-              <span style="color: black;"><?php echo $footer['nama_perusahaan'] ?></span>
+        <div class="row gy-4 d-flex justify-content-between">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <!-- <img src="assets/img/logo.png" alt=""> -->
+              <span class="text-white"><?php echo $footer['nama_perusahaan'] ?></span>
             </a>
-            <p class="text-center"><?php echo $footer['keterangan'] ?></p>
+            <p class="text-white"><?php echo $footer['keterangan'] ?></p>
+            <div class="social-links mt-3">
+              <a href="#" class="instagram text-white"><i class="bi bi-instagram"></i></a>
+            </div>
           </div>
+
+          <div class="col-lg-2 col-6 footer-links ">
+            <h4 class="text-white">Link</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="<?php echo base_url() ?>">Home</a></li>
+              <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#hero">Tentang Kami</a></li>
+              <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#mengapa-kami">Mengapa Kami</a></li>
+              <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#best-honda">Best Honda</a></li>
+              <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#hubungi-kami">Hubungi Kami</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 class="text-white">Informasi</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Kebijakan Privasi</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Syarat & Ketentuan</a></li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="copyright" style="color: black;">
-        &copy; Copyright <strong><span>Honda Bekasi</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
+    <div class="bg-white d-flex align-items-center justify-content-center">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Honda Kranji Bekasi</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
