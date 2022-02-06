@@ -43,119 +43,17 @@
                 <p>
                   <?php echo $value['content'] ?>
                 </p>
-              <!-- <div class="text-center text-lg-start">
-                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Read More</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
-              </div> -->
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="<?php echo base_url('/assets/img/about/').$value['gambar'] ?>" class="img-fluid" alt="">
-          </div>
-
-        </div>
-      <?php endforeach ?>
-    </div>
-
-  </section><!-- End About Section -->
-
-  <!-- ======= Values Section ======= -->
-    <!-- <section id="values" class="values">
-
-      <div class="container" data-aos="fade-up">
-
-        <header class="section-header">
-          <h2>Our Values</h2>
-          <p>Odit est perspiciatis laborum et dicta</p>
-        </header>
-
-        <div class="row">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="box">
-              <img src="assets/img/values-1.png" class="img-fluid" alt="">
-              <h3>Ad cupiditate sed est odio</h3>
-              <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
+            <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+              <img src="<?php echo base_url('/assets/img/about/').$value['gambar'] ?>" class="img-fluid" alt="">
             </div>
+
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-            <div class="box">
-              <img src="assets/img/values-2.png" class="img-fluid" alt="">
-              <h3>Voluptatem voluptatum alias</h3>
-              <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-            <div class="box">
-              <img src="assets/img/values-3.png" class="img-fluid" alt="">
-              <h3>Fugit cupiditate alias nobis.</h3>
-              <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
-            </div>
-          </div>
-
-        </div>
-
+        <?php endforeach ?>
       </div>
 
-    </section> -->
-    <!-- End Values Section -->
-
-    <!-- ======= Counts Section ======= -->
-    <!-- <section id="counts" class="counts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Happy Clients</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-headset" style="color: #15be56;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hours Of Support</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-people" style="color: #bb0852;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hard Workers</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
-    <!-- End Counts Section -->
+    </section><!-- End About Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="service" class="services">
@@ -262,14 +160,14 @@
         <div class="modal" id="mobilio<?php echo $value['id'] ?>" data-aos="fade-in" data-aos-delay="100">
           <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
-              <div class="custom-modal-header">
+              <div class="custom-modal-header d-flex justify-content-between m-4">
                 <a type="button" class="close text-white custom-modal-close" data-dismiss="modal"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="20" height="20"><g><g><path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306C514.019,27.23,514.019,14.135,505.943,6.058z" fill="#FFFFFF"></path></g></g><g><g><path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z" fill="#FFFFFF"></path></g></g></svg></a>
-                <img src="<?php echo base_url('assets/img/logo/').$value['logo'] ?>" alt="">
+                <img class="img-fluid logo-produk" src="<?php echo base_url('assets/img/product/').$value['logo'] ?>" alt="">
               </div>
               <div class="modal-body">
                 <div class="varian-slider swiper" data-aos="fade-up" data-aos-delay="200">
                   <div class="swiper-wrapper">
-                    <?php foreach ($varian as $key => $value): ?>
+                    <?php foreach ($this->M_Produk->varian($value['id']) as $key => $value): ?>
                       <div class="swiper-slide p-3">
                         <div class="varian-item">
                           <a href="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" class="img-fluid" alt=""></a>
@@ -279,7 +177,7 @@
                               <p class="custom-text-bold"><?php echo $value['harga'] ?></p>
                             </div>
                           </div>
-                          <div class="spesifikasi">
+                          <div class="spesifikasi text-dark">
                             <?php echo $value['spesifikasi'] ?>
                           </div>
                         </div>

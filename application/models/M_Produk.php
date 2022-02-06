@@ -9,34 +9,50 @@ class M_Produk extends CI_Model {
 		return $data;
 	}
 
-	public function varian()
+	public function varian($id='')
 	{
+		$this->db->where('id_produk',$id);
+		$this->db->join('produk','varian_produk.id_produk=produk.id');
+		return $this->db->get('varian_produk')->result_array();
+	}
+
+	public function variasi()
+	{
+		$id=$this->uri->segment(4);
+		$this->db->where('id_produk',$id);
 		$this->db->join('produk','varian_produk.id_produk=produk.id');
 		return $this->db->get('varian_produk')->result_array();
 	}
 
 	public function create()
 	{
-		$nama_project=form('nama_project');
-		$min=form('min');
-		$max=form('max');
-		$target=form('target');
-		$keterangan=form('keterangan');
+		$path='./assets/img/logo/';
+		$type='jpg|png|jpeg';
+		$file_name='logo';
+		$form_name='logo';
+
+		$path2='./assets/img/product/';
+		$type2='jpg|png|jpeg';
+		$file_name2='product';
+
+		$gambar=upload_gambar($path2,$type2,$file_name2);
+
+		$logo=gambar_logo($path,$type,$file_name,$form_name);
+		$nama_produk=form('nama_produk');
+		$harga_mulai=form('harga_mulai');
+
 		$rules=[
-			rules_array('nama_project','required'),
-			rules_array('min','required'),
-			rules_array('max','required'),
-			rules_array('target','required')
+			rules_array('nama_produk','required'),
+			rules_array('harga_mulai','required')
 		];
 
 		$validasi=$this->form_validation->set_rules(rules($rules));
 
 		$data=[
-			'nama_project'=>$nama_project,
-			'min'=>$min,
-			'max'=>$max,
-			'target'=>$target,
-			'keterangan'=>$keterangan
+			'judul'=>$nama_produk,
+			'harga_mulai'=>$harga_mulai,
+			'logo'=>$logo,
+			'gambar'=>$gambar
 		];
 		if ($validasi->run()==false) {
 			$message=[
@@ -44,112 +60,110 @@ class M_Produk extends CI_Model {
 				'message'=>'gagal'
 			];
 			$this->session->set_flashdata($message);
-			$data['project']=$this->M_Project->index();
+			$data['produk']=$this->M_Produk->index();
 			$this->load->view('admin/partial/v_header');
 			$this->load->view('admin/partial/v_topbar');
 			$this->load->view('admin/partial/v_sidebar');
-			$this->load->view('admin/v_project',$data);
+			$this->load->view('admin/v_produk',$data);
 		} else {
-			if ($max<$min) {
-				$message=[
-					'request'=>'create',
-					'message'=>'gagal',
-					'description'=>'Max target tidak boleh lebih kecil dari min target'
-				];
-				$this->session->set_flashdata($message);
-				$this->session->set_flashdata($data);
-				redirect(admin_url('project'));
-			} else {
-				if ($max>$target) {
-					$message=[
-						'request'=>'create',
-						'message'=>'gagal',
-						'description'=>'Max target tidak boleh lebih besar dari target alokasi'
-					];
-					$this->session->set_flashdata($message);
-					$this->session->set_flashdata($data);
-					redirect(admin_url('project'));
-				} else {
-					$message=[
-						'request'=>'create',
-						'message'=>'success'
-					];
-					$this->db->insert('project',$data);
-					$this->session->set_flashdata($message);
-					redirect(admin_url('project'));
-				}
-			}
+			$message=[
+				'request'=>'create',
+				'message'=>'success'
+			];
+			$this->db->insert('produk',$data);
+			$this->session->set_flashdata($message);
+			redirect(admin_url('produk'));
+
 		}
 	}
 
 	public function update()
 	{
 		$id=form('id');
-		$nama_project=form('edit_nama_project');
-		$min=form('edit_min');
-		$max=form('edit_max');
-		$target=form('edit_target');
-		$keterangan=form('edit_keterangan');
+		$path='./assets/img/logo/';
+		$type='jpg|png|jpeg';
+		$file_name='logo';
+		$form_name='logo';
+
+		$path2='./assets/img/product/';
+		$type2='jpg|png|jpeg';
+		$file_name2='product';
+
+		$gambar=upload_gambar($path2,$type2,$file_name2);
+
+		$logo=gambar_logo($path,$type,$file_name,$form_name);
+		$nama_produk=form('nama_produk');
+		$harga_mulai=form('harga_mulai');
+
+
+		$this->db->where('id',$id);
+		$gambar_lama=$this->db->get('produk')->row_array();
+
 		$rules=[
-			rules_array('edit_nama_project','required'),
-			rules_array('edit_min','required'),
-			rules_array('edit_max','required'),
-			rules_array('edit_target','required')
+			rules_array('nama_produk','required'),
+			rules_array('harga_mulai','required')
 		];
+
+		if ($gambar==NULL) {
+			$data=[
+				'judul'=>$nama_produk,
+				'harga_mulai'=>$harga_mulai,
+				'logo'=>$logo,
+			];
+			if ($gambar_lama['logo'] !== 'default.png') {
+				unlink(FCPATH . 'assets/img/product/'.$gambar_lama['logo']);
+			}
+		}elseif ($logo==NULL) {
+			$data=[
+				'judul'=>$nama_produk,
+				'harga_mulai'=>$harga_mulai,
+				'gambar'=>$gambar
+			];
+			if ($gambar_lama['gambar'] !== 'default.png') {
+				unlink(FCPATH . 'assets/img/product/'.$gambar_lama['gambar']);
+			}
+		}elseif ($gambar==NULL and $logo==NULL) {
+			$data=[
+				'judul'=>$nama_produk,
+				'harga_mulai'=>$harga_mulai,
+			];
+		}else{
+			$data=[
+				'judul'=>$nama_produk,
+				'harga_mulai'=>$harga_mulai,
+				'logo'=>$logo,
+				'gambar'=>$gambar
+			];
+			if ($gambar_lama['gambar'] !== 'default.png') {
+				unlink(FCPATH . 'assets/img/product/'.$gambar_lama['gambar']);
+				unlink(FCPATH . 'assets/img/product/'.$gambar_lama['logo']);
+			}
+		}
 
 		$validasi=$this->form_validation->set_rules(rules($rules));
-
-		$data=[
-			'nama_project'=>$nama_project,
-			'min'=>$min,
-			'max'=>$max,
-			'target'=>$target,
-			'keterangan'=>$keterangan
-		];
 		if ($validasi->run()==false) {
 			$message=[
 				'request'=>'update',
 				'message'=>'gagal'
 			];
 			$this->session->set_flashdata($message);
-			$data['project']=$this->M_Project->index();
+			$data['produk']=$this->M_Produk->index();
 			$this->load->view('admin/partial/v_header');
 			$this->load->view('admin/partial/v_topbar');
 			$this->load->view('admin/partial/v_sidebar');
-			$this->load->view('admin/v_project',$data);
+			$this->load->view('admin/v_produk',$data);
 		} else {
-			if ($max<$min) {
-				$message=[
-					'edit'=>true,
-					'request'=>'update',
-					'message'=>'gagal',
-					'description'=>'Max target tidak boleh lebih kecil dari min target'
-				];
-				$this->session->set_flashdata($message);
-				redirect(admin_url('project'));
-			} else {
-				if ($max>$target) {
-					$message=[
-						'edit'=>true,
-						'request'=>'update',
-						'message'=>'gagal',
-						'description'=>'Max target tidak boleh lebih besar dari target alokasi'
-					];
-					$this->session->set_flashdata($message);
-					redirect(admin_url('project'));
-				} else {
-					$this->db->where('id',$id);
-					$this->db->update('project',$data);
-					$message=[
-						'request'=>'update',
-						'message'=>'success'
-					];
-					$this->session->set_flashdata($message);
-					redirect(admin_url('project'));
-				}
-			}
+			$this->db->where('id',$id);
+			$this->db->update('produk',$data);
+			$message=[
+				'request'=>'update',
+				'message'=>'success'
+			];
+			$this->session->set_flashdata($message);
+			redirect(admin_url('produk'));
 		}
 	}
+
 
 	public function delete()
 	{
@@ -158,9 +172,14 @@ class M_Produk extends CI_Model {
 			'request'=>'delete',
 			'message'=>'success'
 		];
+
+		$this->db->where('id',$id);
+		$gambar_lama=$this->db->get('produk')->row_array();
+		unlink(FCPATH . 'assets/img/product/'.$gambar_lama['gambar']);
+		unlink(FCPATH . 'assets/img/product/'.$gambar_lama['logo']);
 		$this->session->set_flashdata($message);
 		$this->db->where('id',$id);
-		$this->db->delete('project');
-		redirect(admin_url('project'));
+		$this->db->delete('produk');
+		redirect(admin_url('produk'));
 	}
 }

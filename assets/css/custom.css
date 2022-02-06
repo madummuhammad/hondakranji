@@ -89,6 +89,10 @@
 	padding-left: 15px;
 }
 
+.logo-produk{
+	width: 50px;
+}
+
 @media (max-width: 768px) {
 	.top-header{
 		display: none !important;
