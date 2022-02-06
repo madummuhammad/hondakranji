@@ -50,14 +50,31 @@ function rules($rules)
 	return $rules;
 }
 
-function upload_gambar($path, $type, $file_name)
+function upload_gambar($path2, $type2, $file_name2)
+{
+	$invest=get_instance();
+	$config['upload_path']          = $path2;
+	$config['allowed_types']        = $type2;
+	$config['file_name']            =$file_name2;
+	$invest->load->library('upload', $config);
+	if ( ! $invest->upload->do_upload('gambar'))
+	{
+		$error = array('error' => $invest->upload->display_errors());
+	}
+	else
+	{
+		return $invest->upload->data("file_name");
+	}
+}
+
+function gambar_logo($path, $type, $file_name, $form_name)
 {
 	$invest=get_instance();
 	$config['upload_path']          = $path;
 	$config['allowed_types']        = $type;
 	$config['file_name']            =$file_name;
 	$invest->load->library('upload', $config);
-	if ( ! $invest->upload->do_upload('gambar'))
+	if ( ! $invest->upload->do_upload($form_name))
 	{
 		$error = array('error' => $invest->upload->display_errors());
 	}

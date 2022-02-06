@@ -74,7 +74,8 @@ $route['adminsystem/website/footer']='admin/home/footer';
 
 $route['adminsystem/seo']='admin/seo/index';
 
-$route['adminsystem/project']='admin/project/index';
+$route['adminsystem/produk']='admin/produk/index';
+$route['adminsystem/produk/variasi/(:any)']='admin/produk/variasi/$1';
 $route['adminsystem/member']='admin/member/index';
 $route['adminsystem/member/export']='admin/member/export';
 $route['adminsystem/order']='order/index';

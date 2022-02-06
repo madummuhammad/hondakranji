@@ -16,7 +16,7 @@
                             </ul>
                         </li>
                         <li class="nav-label">Produk</li>
-                        <li><a href="<?php echo admin_url('admin') ?>" aria-expanded="false"><i class="icon icon-app-store"></i><span class="nav-text">Produk</span></a></li>
+                        <li><a href="<?php echo admin_url('produk') ?>" aria-expanded="false"><i class="icon icon-app-store"></i><span class="nav-text">Produk</span></a></li>
                         <?php if ($this->session->userdata('role_id')==1): ?>
                             <li class="nav-label">Admin</li>
                             <li><a href="<?php echo admin_url('admin') ?>" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Admin</span></a></li>
