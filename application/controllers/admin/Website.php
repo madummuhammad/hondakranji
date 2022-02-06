@@ -17,10 +17,11 @@ class Website extends CI_Controller {
 		$data['section_wa_3']=$this->M_Website_Eng->section_wa_3();
 		$data['mengapa_kami']=$this->M_Website_Eng->mengapa_kami();
 		$data['portofolio']=$this->M_Website_Eng->portofolio();
-		$data['team']=$this->M_Website_Eng->team();
-		$data['partner']=$this->M_Website_Eng->partner();
 		$data['contact']=$this->M_Website_Eng->kontak();
 		$data['footer']=$this->M_Website_Eng->footer();
+		$data['promosi']=$this->M_Promosi->index();
+		$data['produk']=$this->M_Produk->index();
+		$data['varian']=$this->M_Produk->varian();
 		$this->load->view('admin/website/v_home',$data);
 	}
 }
