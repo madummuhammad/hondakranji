@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <!-- <link href="<?php echo base_url() ?>assets/img/logo.png" rel="icon"> -->
+  <link href="<?php echo base_url() ?>assets/img/logo/honda-logo.ico" rel="icon">
   <link href="<?php echo base_url() ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -213,12 +213,6 @@
               <p>
                 <?php echo $value['content'] ?>
               </p>
-              <!-- <div class="text-center text-lg-start">
-                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Read More</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
-              </div> -->
             </div>
           </div>
 
@@ -239,6 +233,28 @@
   </div>
 
 </section><!-- End Services Section -->
+<section id="promosi" class="testimonials">
+
+  <div class="container" data-aos="fade-up">
+
+    <header class="section-header">
+      <h2>PROMOSI</h2>
+    </header>
+
+    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <?php foreach ($promosi as $key => $value): ?>
+          <div class="swiper-slide p-3">
+            <a href="<?php echo base_url('assets/img/poster/').$value['gambar'] ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title='<?php echo $value['title'] ?>'><img src="<?php echo base_url('assets/img/poster/').$value['gambar'] ?>" class="img-thumbnail" alt=""></a>
+          </div>    
+        <?php endforeach ?>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+</section><!-- End Testimonials Section -->
 <section id="section-wa-1" class="wa">
   <div class="container">
     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-section-wa-1">
@@ -296,7 +312,6 @@
   </a>
 </div>
 </section>
-
 <!-- ======= Pricing Section ======= -->
 <section id="mengapa-kami" class="pricing">
 
@@ -448,6 +463,75 @@
 <?php endforeach ?>
 </section>
 <!-- End Pricing Section -->
+<!-- ======= Portfolio Section ======= -->
+
+<section id="portfolio" class="portfolio">
+
+  <div class="container" data-aos="fade-up">
+
+    <header class="section-header">
+      <h2>Model</h2>
+    </header>
+
+    <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      <?php foreach ($produk as $key => $value): ?>
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="<?php echo base_url() ?>assets/img/product/<?php echo $value['gambar'] ?>" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4><?php echo $value['judul'] ?></h4>
+              <div class="portfolio-links">
+                <a href="<?php echo base_url() ?>assets/img/product/<?php echo $value['gambar'] ?>" data-gallery="portfolioGallery" class="model-lightbox" title="<?php echo $value['judul'] ?>"><i class="bi bi-plus"></i></a>
+                <a href="#mobilio<?php echo $value['id'] ?>" data-toggle="modal" title="More Details"><i class="bi bi-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-model d-flex justify-content-center mt-2">
+            <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+              <p class="custom-font-sm">Harga mulai dari</p>
+              <p class="custom-text-bold"><?php echo $value['harga_mulai'] ?></p>
+            </div>
+          </div>
+        </div>
+      <?php endforeach ?>
+    </div>
+  </div>
+  <?php foreach ($produk as $key => $value): ?>
+    <div class="modal" id="mobilio<?php echo $value['id'] ?>" data-aos="fade-in" data-aos-delay="100">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="custom-modal-header">
+            <a type="button" class="close text-white custom-modal-close" data-dismiss="modal"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="20" height="20"><g><g><path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306C514.019,27.23,514.019,14.135,505.943,6.058z" fill="#FFFFFF"></path></g></g><g><g><path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z" fill="#FFFFFF"></path></g></g></svg></a>
+            <img src="<?php echo base_url('assets/img/logo/').$value['logo'] ?>" alt="">
+          </div>
+          <div class="modal-body">
+            <div class="varian-slider swiper" data-aos="fade-up" data-aos-delay="200">
+              <div class="swiper-wrapper">
+                <?php foreach ($varian as $key => $value): ?>
+                  <div class="swiper-slide p-3">
+                    <div class="varian-item">
+                      <a href="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" class="img-fluid" alt=""></a>
+                      <div class="footer-model d-flex justify-content-center mt-2">
+                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                          <p class="custom-font-sm">Harga</p>
+                          <p class="custom-text-bold"><?php echo $value['harga'] ?></p>
+                        </div>
+                      </div>
+                      <div class="spesifikasi">
+                        <?php echo $value['spesifikasi'] ?>
+                      </div>
+                    </div>
+                  </div>     
+                <?php endforeach ?>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <?php endforeach ?>
+</section><!-- End Portfolio Section -->
 <!-- ======= Portfolio Section ======= -->
 <section id="best-honda" class="portfolio">
 
@@ -629,7 +713,7 @@
   </div>
 
 </section><!-- End Contact Section -->
-<section id="wa-footer1" class="wa">
+<section id="wa-footer1" class="wa-footer">
   <div class="modal fade" id="modal-section-wa-3">
     <div class="modal-dialog modal-dialog-centered">
       <form action="<?php echo admin_url('website/section_wa_3') ?>" method="POST" enctype="multipart/form-data">
@@ -694,63 +778,43 @@
 
   <div class="footer-top">
     <div class="container">
-      <div class="col-lg-12">
-        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalFooter"><i class="fas fa-edit"></i></button>
-      </div>
-      <div class="row gy-4 d-flex justify-content-center">
-        <div class="col-lg-5 col-md-12 footer-info d-flex flex-column align-items-center">
-          <a class="logo d-flex align-items-center">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <span style="color: black;"><?php echo $footer['nama_perusahaan'] ?></span>
+            <span class="text-white"><?php echo $footer['nama_perusahaan'] ?></span>
           </a>
-          <p class="text-center"><?php echo $footer['keterangan'] ?></p>
-            <!-- <div class="social-links mt-3">
-              <a href="<?php echo $footer['twiter'] ?>" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="<?php echo $footer['telegram'] ?>" target="_black" class="linkedin"><i class="bi bi-telegram"></i></a>
-            </div> -->
+          <p class="text-white"><?php echo $footer['keterangan'] ?></p>
+          <div class="social-links mt-3">
+            <a href="#" class="instagram text-white"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="copyright" style="color: black;">
-        &copy; Copyright <strong><span>Honda Bekasi</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-      </div>
-    </div>
-    <div class="modal fade" id="modalFooter">
-      <div class="modal-dialog modal-dialog-centered">
-       <form action="<?php echo admin_url('website/footer') ?>" method="POST">
-        <?php echo method('_patch') ?>
-        <?php echo form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash());  ?>
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Footer</h4>
-            <a type="button" class="close" data-dismiss="modal">&times;</a>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group text-center">
-                  <label for="" class="text-center p-2">Nama Perusahaan</label>
-                  <textarea name="nama_perusahaan" id="" cols="30" rows="4" class="form-control" placeholder="Masukan Isi Konten"><?php echo $footer['nama_perusahaan'] ?></textarea>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group text-center">
-                  <label for="" class="p-2">Keterangan</label>
-                  <textarea name="keterangan" id="" cols="30" rows="4" class="form-control" placeholder="Masukan Isi Konten"><?php echo $footer['keterangan'] ?></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-outline-primary">Kirim</button>
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-          </div>
+
+        <div class="col-lg-2 col-6 footer-links ">
+          <h4 class="text-white">Link</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="<?php echo base_url() ?>">Home</a></li>
+            <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#hero">Tentang Kami</a></li>
+            <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#mengapa-kami">Mengapa Kami</a></li>
+            <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#best-honda">Best Honda</a></li>
+            <li><i class="bi bi-chevron-right text-white"></i> <a class="text-white" href="#hubungi-kami">Hubungi Kami</a></li>
+          </ul>
         </div>
-      </form>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4 class="text-white">Informasi</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Kebijakan Privasi</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Syarat & Ketentuan</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="bg-white d-flex align-items-center justify-content-center">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Honda Kranji Bekasi</span></strong>. All Rights Reserved
     </div>
   </div>
 </footer><!-- End Footer -->

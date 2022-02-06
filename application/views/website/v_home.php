@@ -176,18 +176,11 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
           <div class="swiper-wrapper">
-            <div class="swiper-slide p-3">
-              <a href="<?php echo base_url('assets/img/poster/satu.jpg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Program Penjualan New Year, New Deals"><img src="<?php echo base_url('assets/img/poster/satu.jpg') ?>" class="img-thumbnail" alt=""></a>
-            </div>
-            <div class="swiper-slide p-3">
-              <a href="<?php echo base_url('assets/img/poster/dua.jpeg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title='Program Purna Jual “Paket Hemat Mini”'><img src="<?php echo base_url('assets/img/poster/dua.jpeg') ?>" class="img-thumbnail" alt=""></a>
-            </div>
-            <div class="swiper-slide p-3">
-              <a href="<?php echo base_url('assets/img/poster/tiga.jpg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Dapatkan Tampilan Lebih Ekslusif dengan Honda Options!"><img src="<?php echo base_url('assets/img/poster/tiga.jpg') ?>" class="img-thumbnail" alt=""></a>
-            </div>
-            <div class="swiper-slide p-3">
-              <a href="<?php echo base_url('assets/img/poster/empat.png') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Let’s Enhance Your Honda City Hatchback RS Sporty Look with Modulo Accessories"><img src="<?php echo base_url('assets/img/poster/empat.png') ?>" class="img-thumbnail" alt=""></a>
-            </div>
+            <?php foreach ($promosi as $key => $value): ?>
+              <div class="swiper-slide p-3">
+                <a href="<?php echo base_url('assets/img/poster/').$value['gambar'] ?>" data-gallery="portfolioGallery" class="portfokio-lightbox" title='<?php echo $value['title'] ?>'><img src="<?php echo base_url('assets/img/poster/').$value['gambar'] ?>" class="img-thumbnail" alt=""></a>
+              </div>    
+            <?php endforeach ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -243,123 +236,63 @@
         </header>
 
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="<?php echo base_url() ?>assets/img/product/satu.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>New Honda Mobilio</h4>
-                <div class="portfolio-links">
-                  <a href="<?php echo base_url() ?>assets/img/product/satu.png" data-gallery="portfolioGallery" class="model-lightbox" title="New Honda Mobilio"><i class="bi bi-plus"></i></a>
-                  <a href="#mobilio" data-toggle="modal" title="More Details"><i class="bi bi-link"></i></a>
+          <?php foreach ($produk as $key => $value): ?>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-wrap">
+                <img src="<?php echo base_url() ?>assets/img/product/<?php echo $value['gambar'] ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4><?php echo $value['judul'] ?></h4>
+                  <div class="portfolio-links">
+                    <a href="<?php echo base_url() ?>assets/img/product/<?php echo $value['gambar'] ?>" data-gallery="portfolioGallery" class="model-lightbox" title="<?php echo $value['judul'] ?>"><i class="bi bi-plus"></i></a>
+                    <a href="#mobilio<?php echo $value['id'] ?>" data-toggle="modal" title="More Details"><i class="bi bi-link"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-model d-flex justify-content-center mt-2">
+                <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                  <p class="custom-font-sm">Harga mulai dari</p>
+                  <p class="custom-text-bold"><?php echo $value['harga_mulai'] ?></p>
                 </div>
               </div>
             </div>
-            <div class="footer-model d-flex justify-content-center mt-2">
-              <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
-                <p class="custom-font-sm">Harga mulai dari</p>
-                <p class="custom-text-bold">Rp. 500.000.000</p>
+          <?php endforeach ?>
+        </div>
+      </div>
+      <?php foreach ($produk as $key => $value): ?>
+        <div class="modal" id="mobilio<?php echo $value['id'] ?>" data-aos="fade-in" data-aos-delay="100">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="custom-modal-header">
+                <a type="button" class="close text-white custom-modal-close" data-dismiss="modal"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="20" height="20"><g><g><path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306C514.019,27.23,514.019,14.135,505.943,6.058z" fill="#FFFFFF"></path></g></g><g><g><path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z" fill="#FFFFFF"></path></g></g></svg></a>
+                <img src="<?php echo base_url('assets/img/logo/').$value['logo'] ?>" alt="">
+              </div>
+              <div class="modal-body">
+                <div class="varian-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                  <div class="swiper-wrapper">
+                    <?php foreach ($varian as $key => $value): ?>
+                      <div class="swiper-slide p-3">
+                        <div class="varian-item">
+                          <a href="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/').$value['gambar_varian'] ?>" class="img-fluid" alt=""></a>
+                          <div class="footer-model d-flex justify-content-center mt-2">
+                            <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
+                              <p class="custom-font-sm">Harga</p>
+                              <p class="custom-text-bold"><?php echo $value['harga'] ?></p>
+                            </div>
+                          </div>
+                          <div class="spesifikasi">
+                            <?php echo $value['spesifikasi'] ?>
+                          </div>
+                        </div>
+                      </div>     
+                    <?php endforeach ?>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal" id="mobilio" data-aos="fade-in" data-aos-delay="100">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content">
-            <div class="custom-modal-header">
-              <a type="button" class="close text-white custom-modal-close" data-dismiss="modal"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="20" height="20"><g><g><path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306C514.019,27.23,514.019,14.135,505.943,6.058z" fill="#FFFFFF"></path></g></g><g><g><path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z" fill="#FFFFFF"></path></g></g></svg></a>
-              <img src="<?php echo base_url('assets/img/logo/mobilio-logo.png') ?>" alt="">
-            </div>
-            <div class="modal-body">
-              <div class="varian-slider swiper" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide p-3">
-                    <div class="varian-item">
-                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-1.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-1.png') ?>" class="img-fluid" alt=""></a>
-                      <div class="footer-model d-flex justify-content-center mt-2">
-                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
-                          <p class="custom-font-sm">Harga</p>
-                          <p class="custom-text-bold">Rp. 500.000.000</p>
-                        </div>
-                      </div>
-                      <ul class="text-dark">
-                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
-                        <li>5 M/T</li>
-                        <li>15" Alloy Wheel</li>
-                        <li>Halogen Projector Headlamp with LED DRL</li>
-                        <li>6.2" Resistive Touchscreen Display Audio</li>
-                        <li>Fog Lamp</li>
-                        <li>Keyless Entry</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="swiper-slide p-3">
-                    <div class="varian-item">
-                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-2.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title='Rp. 500.000.000'><img src="<?php echo base_url('assets/img/product/varian-mobilio-2.png') ?>" class="img-fluid" alt=""></a>
-                      <div class="footer-model d-flex justify-content-center mt-2">
-                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
-                          <p class="custom-font-sm">Harga</p>
-                          <p class="custom-text-bold">Rp. 500.000.000</p>
-                        </div>
-                      </div>
-                      <ul class="text-dark">
-                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
-                        <li>5 M/T</li>
-                        <li>15" Alloy Wheel</li>
-                        <li>Halogen Projector Headlamp with LED DRL</li>
-                        <li>6.2" Resistive Touchscreen Display Audio</li>
-                        <li>Fog Lamp</li>
-                        <li>Keyless Entry</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="swiper-slide p-3">
-                    <div class="varian-item">
-                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-3.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-3.png') ?>" class="img-fluid" alt=""></a>
-                      <div class="footer-model d-flex justify-content-center mt-2">
-                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
-                          <p class="custom-font-sm">Harga</p>
-                          <p class="custom-text-bold">Rp. 500.000.000</p>
-                        </div>
-                      </div>
-                      <ul class="text-dark">
-                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
-                        <li>5 M/T</li>
-                        <li>15" Alloy Wheel</li>
-                        <li>Halogen Projector Headlamp with LED DRL</li>
-                        <li>6.2" Resistive Touchscreen Display Audio</li>
-                        <li>Fog Lamp</li>
-                        <li>Keyless Entry</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="swiper-slide p-3">
-                    <div class="varian-item">
-                      <a href="<?php echo base_url('assets/img/product/varian-mobilio-4.png') ?>" data-gallery="portfolioGallery" class="varian-lightbox" title="Rp. 500.000.000"><img src="<?php echo base_url('assets/img/product/varian-mobilio-4.png') ?>" class="img-fluid" alt=""></a>
-                      <div class="footer-model d-flex justify-content-center mt-2">
-                        <div class="btn-model d-flex justify-content-center align-items-center flex-column pt-2">
-                          <p class="custom-font-sm">Harga</p>
-                          <p class="custom-text-bold">Rp. 500.000.000</p>
-                        </div>
-                      </div>
-                      <ul class="text-dark">
-                        <li>1.5L SOHC i-VTEC Engine 118PS</li>
-                        <li>5 M/T</li>
-                        <li>15" Alloy Wheel</li>
-                        <li>Halogen Projector Headlamp with LED DRL</li>
-                        <li>6.2" Resistive Touchscreen Display Audio</li>
-                        <li>Fog Lamp</li>
-                        <li>Keyless Entry</li>
-                      </ul>
-                    </div>
-                  </div>          
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endforeach ?>
     </section><!-- End Portfolio Section -->
     <!-- ======= Portfolio Section ======= -->
     <section id="best-honda" class="portfolio">

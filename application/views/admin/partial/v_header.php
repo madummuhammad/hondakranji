@@ -5,13 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <?php if ($this->session->userdata('role_id')==2): ?>
-        <title><?php echo 'Member Area' ?></title>
-    <?php else: ?>
-        <title>Admin - Honda Bekasi</title>
-    <?php endif ?>
+    <title>Admin - Honda Bekasi</title>
     <!-- Favicon icon -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>/assets/img/logo.png"> -->
+    <link href="<?php echo base_url() ?>assets/img/logo/honda-logo.ico" rel="icon">
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/admin/vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/admin/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="<?php echo base_url() ?>/assets/admin/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">

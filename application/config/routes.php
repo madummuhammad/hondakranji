@@ -72,6 +72,8 @@ $route['adminsystem/website/partner']='admin/home/partner';
 $route['adminsystem/website/kontak']='admin/home/kontak';
 $route['adminsystem/website/footer']='admin/home/footer';
 
+$route['adminsystem/seo']='admin/seo/index';
+
 $route['adminsystem/project']='admin/project/index';
 $route['adminsystem/member']='admin/member/index';
 $route['adminsystem/member/export']='admin/member/export';

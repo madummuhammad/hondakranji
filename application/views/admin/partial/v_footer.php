@@ -5,7 +5,7 @@
             ***********************************-->
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Honda Kranji</a> <?php echo date('Y') ?></p>
                 </div>
             </div>
         <!--**********************************
@@ -74,8 +74,6 @@
         <script src="<?php echo base_url() ?>assets/admin/vendor/summernote/js/summernote.min.js"></script>
         <!-- Summernote init -->
         <script src="<?php echo base_url() ?>assets/admin/js/plugins-init/summernote-init.js"></script>
-
-
     </body>
 
     </html>
