@@ -22,6 +22,7 @@ class Website extends CI_Controller {
 		$data['promosi']=$this->M_Promosi->index();
 		$data['produk']=$this->M_Produk->index();
 		$data['varian']=$this->M_Produk->varian();
+		$data['contact']=$this->M_Website_Eng->contact();
 		$this->load->view('admin/website/v_home',$data);
 	}
 }

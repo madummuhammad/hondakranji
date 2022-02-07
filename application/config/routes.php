@@ -58,12 +58,16 @@ $route['adminsystem/admin']='admin/auth/admin';
 $route['website']='admin/website/index';
 $route['password/(:any)']='member/auth/forgot/$1';
 $route['forgotpassword']='member/auth/forgot';
+$route['kebijakan_privasi']='home/kebijakan_privasi';
+$route['syarat_dan_ketentuan']='home/syarat_dan_ketentuan';
+$route['email']='home/email';
 
 $route['adminsystem/website']='admin/home/index';
 $route['adminsystem/website/about']='admin/home/about';
 $route['adminsystem/website/section_wa_1']='admin/home/section_wa_1';
 $route['adminsystem/website/section_wa_2']='admin/home/section_wa_2';
 $route['adminsystem/website/section_wa_3']='admin/home/section_wa_3';
+$route['adminsystem/website/contact']='admin/home/contact';
 $route['adminsystem/website/mengapa_kami']='admin/home/mengapa_kami';
 $route['adminsystem/website/layanan']='admin/home/layanan';
 $route['adminsystem/website/portofolio']='admin/home/portofolio';
@@ -71,6 +75,8 @@ $route['adminsystem/website/team']='admin/home/team';
 $route['adminsystem/website/partner']='admin/home/partner';
 $route['adminsystem/website/kontak']='admin/home/kontak';
 $route['adminsystem/website/footer']='admin/home/footer';
+$route['adminsystem/kebijakan_privasi']='admin/seo/kebijakan_privasi';
+$route['adminsystem/syarat_dan_ketentuan']='admin/seo/syarat_dan_ketentuan';
 
 $route['adminsystem/seo']='admin/seo/index';
 

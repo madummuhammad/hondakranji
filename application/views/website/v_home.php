@@ -59,7 +59,10 @@
     <section id="service" class="services">
 
       <div class="container d-flex justify-content-center" data-aos="fade-up">
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/aS_Ma8yVy64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>X
+        <iframe width="100%" height="500" src="https://www.youtube.com/embed/aS_Ma8yVy64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- <div class="video">
+          <video autoplay loop muted width="100%" height="500" src="https://www.youtube.com/embed/aS_Ma8yVy64"></video> 
+        </div> -->
       </div>
 
     </section><!-- End Services Section -->
@@ -92,7 +95,6 @@
         <h2 class="text-center"><?php echo $section_wa_1['judul'] ?></h2>
         <a href="https://api.whatsapp.com/send?phone=<?php echo $section_wa_1['wa'] ?>&text=Hallo%20Admin." target="_blank" class="btn-wa scrollto d-inline-flex align-items-center justify-content-center align-self-center">
           <span><i class="fab fa-whatsapp"></i> <?php echo $section_wa_1['button'] ?></span>
-          <!-- <i class="bi bi-arrow-right"></i> -->
         </a>
       </div>
     </section>
@@ -108,17 +110,22 @@
           </svg>
         </header>
         <div class="row gy-4 d-flex justify-content-center" data-aos="fade-left">
-          <?php foreach ($mengapa_kami as $key => $value): ?>
-            <div class="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-delay="100">
-              <div class="box">
-                <h2><?php echo $value['judul'] ?></h2>
-                <div class="icon">
-                  <?php echo $value['icon'] ?>
+          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper">
+              <?php foreach ($mengapa_kami as $key => $value): ?>
+                <div class="swiper-slide p-3">
+                  <div class="box">
+                    <h2><?php echo $value['judul'] ?></h2>
+                    <div class="icon">
+                      <?php echo $value['icon'] ?>
+                    </div>
+                    <p><?php echo $value['content'] ?></p>
+                  </div>
                 </div>
-                <p><?php echo $value['content'] ?></p>
-              </div>
+              <?php endforeach ?>
             </div>
-          <?php endforeach ?>
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
       </div>
 
@@ -250,28 +257,29 @@
                 <div class="info-box">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Alamat</h3>
-                  <p>Jl Jendral Sudirman KM.31, Kranji, <br>Bekasi Selatan, Bekasi, Kode POS 17143</p>
+                  <p><?php echo $contact['alamat'] ?></p>
+                  <p>Kode Pos <?php echo $contact['pos'] ?></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-telephone"></i>
                   <h3>Telepon</h3>
-                  <p>087878810366</p>
+                  <p><?php echo $contact['telepon'] ?></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-envelope"></i>
                   <h3>Email</h3>
-                  <p>Rijal4355@gmail.com</p>
+                  <p><?php echo $contact['email'] ?></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-clock"></i>
                   <h3>Pelayanan</h3>
-                  <p>Senin - Minggu<br>9:00 - 17:00</p>
+                  <p><?php echo $contact['hari'] ?><br><?php echo $contact['jam'] ?></p>
                 </div>
               </div>
             </div>
@@ -279,7 +287,8 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="<?php echo base_url('email') ?>" method="post" class="php-email-form">
+              <?php echo  form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash());  ?>
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -291,7 +300,7 @@
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="No Hp" required>
+                  <input type="number" class="form-control" name="no_hp" placeholder="No Hp" required>
                 </div>
 
                 <div class="col-md-12">
@@ -367,8 +376,8 @@
           <div class="col-lg-2 col-6 footer-links">
             <h4 class="text-white">Informasi</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Kebijakan Privasi</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="#">Syarat & Ketentuan</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="<?php echo base_url('kebijakan_privasi') ?>">Kebijakan Privasi</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a class="text-white" href="<?php echo base_url('syarat_dan_ketentuan') ?>">Syarat & Ketentuan</a></li>
             </ul>
           </div>
 

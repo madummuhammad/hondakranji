@@ -273,6 +273,56 @@ class M_Home extends CI_Model {
 		}
 	}
 
+	public function contact()
+	{
+		$alamat=form('alamat');
+		$telepon=form('telepon');
+		$pos=form('pos');
+		$email=form('email');
+		$hari=form('hari');
+		$jam=form('jam');
+
+		$rules=[
+			rules_array('alamat','required'),
+			rules_array('telepon','required'),
+			rules_array('pos','required'),
+			rules_array('email','required'),
+			rules_array('hari','required'),
+			rules_array('jam','required')
+		];
+
+		$validasi=$this->form_validation->set_rules(rules($rules));
+
+		$data=[
+			'alamat'=>$alamat,
+			'telepon'=>$telepon,
+			'pos'=>$pos,
+			'email'=>$email,
+			'hari'=>$hari,
+			'jam'=>$jam
+		];
+
+		if ($validasi->run()==false) {
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'error',
+				'title'=>'Edit Section Kontak Gagal'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		} else {
+			$this->db->where('id',1);
+			$this->db->update('contact',$data);
+			$toast=[
+				'request'=>'banner',
+				'icon'=>'success',
+				'title'=>'Edit Section Kontak Berhasil'
+			];
+			$this->session->set_flashdata($toast);
+			redirect('website');
+		}
+	}
+
 	public function edit_about()
 	{
 		$path='./assets/img/about/';

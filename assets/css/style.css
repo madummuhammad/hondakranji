@@ -836,14 +836,14 @@ section {
   padding: 40px 20px;
   background: #fff;
   text-align: center;
-  box-shadow: 0px 4px 30px #000000;
+  /*box-shadow: 0px 4px 30px #000000;*/
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   transition: 0.3s;
 }
 .pricing .box:hover {
-  transform: scale(1.1);
+  /*transform: scale(1.1);*/
   box-shadow: 0px 4px 30px #000000;
 }
 .pricing h2 {
@@ -2038,6 +2038,7 @@ section {
 .footer .footer-top .footer-info .logo {
   line-height: 0;
   margin-bottom: 15px;
+  margin-top: 20px;
 }
 .footer .footer-top .footer-info .logo img {
   max-height: 40px;

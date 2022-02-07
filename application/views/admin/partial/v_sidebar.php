@@ -13,6 +13,8 @@
                             <ul aria-expanded="false">
                                 <li><a target="_blank" href="<?php echo base_url('website') ?>">Konten</a></li>
                                 <li><a href="<?php echo admin_url('seo') ?>">SEO</a></li>
+                                <li><a href="<?php echo admin_url('kebijakan_privasi') ?>">Kebijakan Privasi</a></li>
+                                <li><a href="<?php echo admin_url('syarat_dan_ketentuan') ?>">Syarat dan Ketentuan</a></li>
                             </ul>
                         </li>
                         <li class="nav-label">Produk</li>
