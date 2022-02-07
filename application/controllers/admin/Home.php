@@ -34,6 +34,11 @@ class Home extends CI_Controller {
 		$this->M_Home->edit_section_wa_3();
 	}
 
+	public function contact()
+	{
+		$this->M_Home->contact();
+	}
+
 	public function mengapa_kami()
 	{
 		if ($this->input->post('_patch') !== NULL) {

@@ -93,6 +93,10 @@
 	width: 50px;
 }
 
+.heros{
+	margin-top: 100px;
+}
+
 @media (max-width: 768px) {
 	.top-header{
 		display: none !important;

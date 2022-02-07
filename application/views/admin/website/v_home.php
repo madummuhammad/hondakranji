@@ -45,15 +45,6 @@
         <div class="right d-flex justify-content-between">
           <div class="media-sosial d-flex justify-content-between">
             <div class="header-icon mx-2">
-              <i class="fab fa-facebook-square"></i>
-            </div>
-            <div class="header-icon mx-2">
-              <i class="fab fa-twitter-square"></i>
-            </div>
-            <div class="header-icon mx-2">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <div class="header-icon mx-2">
               <i class="fab fa-instagram-square"></i>
             </div>
           </div>
@@ -69,7 +60,8 @@
         </a>
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="#about">Tentang Kami</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">Tentang Kami</a></li>
+            <li><a class="nav-link scrollto" href="#promosi">Promosi</a></li>
             <li><a class="nav-link scrollto" href="#mengapa-kami">Mengapa Kami</a></li>
             <li><a class="nav-link scrollto" href="#best-honda">Best Honda</a></li>
             <li><a class="nav-link scrollto" href="#hubungi-kami">Hubungi Kami</a></li>
@@ -633,7 +625,11 @@
 <section id="hubungi-kami" class="contact">
 
   <div class="container" data-aos="fade-up">
-
+    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#contact">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
     <div class="row gy-4">
 
       <div class="col-lg-6">
@@ -643,31 +639,32 @@
             <div class="info-box">
               <i class="bi bi-geo-alt"></i>
               <h3>Alamat</h3>
-              <p>Jl Jendral Sudirman KM.31, Kranji, <br>Bekasi Selatan, Bekasi, Kode POS 17143</p>
+              <p><?php echo $contact['alamat'] ?></p>
+              <p>Kode Pos <?php echo $contact['pos'] ?></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="info-box">
               <i class="bi bi-telephone"></i>
               <h3>Telepon</h3>
-              <p>087878810366</p>
+              <p><?php echo $contact['telepon'] ?></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="info-box">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p>Rijal4355@gmail.com</p>
+              <p><?php echo $contact['email'] ?></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="info-box">
               <i class="bi bi-clock"></i>
               <h3>Pelayanan</h3>
-              <p>Senin - Minggu<br>9:00 - 17:00</p>
+              <p><?php echo $contact['hari'] ?><br><?php echo $contact['jam'] ?></p>
             </div>
           </div>
-        </div>
+        </div>  
 
       </div>
 
@@ -709,9 +706,69 @@
       </div>
 
     </div>
+  </div>
+  <div class="modal fade" id="contact">
+    <div class="modal-dialog modal-dialog-centered">
+      <form action="<?php echo admin_url('website/contact') ?>" method="POST" enctype="multipart/form-data">
+        <?php echo  form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash());  ?>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Section Kontak</h4>
+            <a type="button" class="close" data-dismiss="modal">&times;</a>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group text-center">
+                  <label for="" class="text-center p-2">Alamat</label>
+                  <input type="text" class="form-control" id="email" placeholder="Masukan Alamat" name="alamat" value="<?php echo $contact['alamat'] ?>">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group text-center">
+                  <label for="" class="p-2">Telepon</label>
+                  <input name="telepon" id="" class="form-control" placeholder="Masukan No Telepon" value="<?php echo $contact['telepon'] ?>">
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col-6">
+               <div class="form-group text-center">
+                <label for="" class="p-2">Kontak</label>
+                <input name="email" id="" class="form-control" placeholder="Masukan Email" value="<?php echo $contact['email'] ?>">
+              </div>
+            </div>
+            <div class="col-6">
+             <div class="form-group text-center">
+              <label for="" class="p-2">Hari Layanan</label>
+              <input name="hari" id="" class="form-control" placeholder="Masukan Hari Layanan" value="<?php echo $contact['hari'] ?>">
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-6">
+           <div class="form-group text-center">
+            <label for="" class="p-2">Jam Layanan</label>
+            <input name="jam" id="" class="form-control" placeholder="Masukan Jam Layanan" value="<?php echo $contact['jam'] ?>">
+          </div>
+        </div>
+        <div class="col-6">
+         <div class="form-group text-center">
+          <label for="" class="p-2">Kode Pos</label>
+          <input name="pos" id="" class="form-control" placeholder="Masukan Kode Pos" value="<?php echo $contact['pos'] ?>">
+        </div>
+      </div>
+    </div>
 
   </div>
-
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-primary">Kirim</button>
+    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</form>
+</div>
+</div>
 </section><!-- End Contact Section -->
 <section id="wa-footer1" class="wa-footer">
   <div class="modal fade" id="modal-section-wa-3">
@@ -778,10 +835,12 @@
 
   <div class="footer-top">
     <div class="container">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#footer-edit">
+        <i class="fas fa-edit"></i>
+      </button>
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-5 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- <img src="assets/img/logo.png" alt=""> -->
+          <a class="logo d-flex align-items-center">
             <span class="text-white"><?php echo $footer['nama_perusahaan'] ?></span>
           </a>
           <p class="text-white"><?php echo $footer['keterangan'] ?></p>
@@ -817,8 +876,44 @@
       &copy; Copyright <strong><span>Honda Kranji Bekasi</span></strong>. All Rights Reserved
     </div>
   </div>
-</footer><!-- End Footer -->
 
+</footer><!-- End Footer -->
+<form action="<?php echo admin_url('website/footer') ?>" method="POST" enctype="multipart/form-data">
+  <div class="modal fade" id="footer-edit">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <?php echo  form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash());  ?>
+      <?php echo method('_patch') ?>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+          <a type="button" class="close" data-dismiss="modal">&times;</a>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group text-center">
+                <label for="" class="text-center p-2">Nama Perusahaan</label>
+                <input type="text" class="form-control" id="email" placeholder="Masukan Judul" name="nama_perusahaan" value="<?php echo $footer['nama_perusahaan'] ?>">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group text-center">
+                <label for="" class="p-2">Keterangan</label>
+                <textarea id="" cols="30" rows="10" class="form-control" name="keterangan"><?php echo $footer['keterangan'] ?><?php echo $footer['keterangan'] ?></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-primary">Kirim</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->

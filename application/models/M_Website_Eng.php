@@ -69,4 +69,10 @@ class M_Website_Eng extends CI_Model {
 		$data=$this->db->get('footer_eng')->row_array();
 		return $data;
 	}
+
+	public function contact()
+	{
+		$this->db->where('id',1);
+		return $this->db->get('contact')->row_array();
+	}
 }

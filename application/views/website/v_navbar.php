@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="phone">
-          <a href="" class="btn-phone">Hubungi Kami</a>
+          <a class="scrollto text-white" href="#hubungi-kami" class="btn-phone">Hubungi Kami</a>
         </div>
       </div>
     </div>
@@ -21,6 +21,20 @@
         <!-- <img src="<?php echo base_url() ?>assets/img/logo.png" alt=""> -->
         <!-- <span>Atoze Capital</span> -->
       </a>
+      <?php if ($this->uri->segment(1)=='syarat_dan_ketentuan' OR $this->uri->segment(1)=='kebijakan_privasi'): ?>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="<?php echo base_url() ?>">Home</a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(1)=='syarat_dan_ketentuan'): ?>
+            <?php echo 'active' ?>
+          <?php endif ?>" href="<?php echo base_url('syarat_dan_ketentuan') ?>">Syarat dan Ketentuan</a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(1)=='kebijakan_privasi'): ?>
+            <?php echo 'active' ?>
+          <?php endif ?>" href="<?php echo base_url('kebijakan_privasi') ?>">Kebijakan Privasi</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    <?php else: ?>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Tentang Kami</a></li>
@@ -31,9 +45,11 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
+    <?php endif ?>
 
-      <!-- .navbar -->
 
-    </div>
-  </header><!-- End Header -->
+    <!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
 </div>
