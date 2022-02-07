@@ -78,7 +78,7 @@ class M_Kebijakan_Privasi extends CI_Model {
 				'title'=>'Edit Section Kontak Berhasil'
 			];
 			$this->session->set_flashdata($toast);
-			redirect(admin_url('kebijakan_privasi'));
+			redirect(admin_url('syarat_dan_ketentuan'));
 		}
 	}
 }
