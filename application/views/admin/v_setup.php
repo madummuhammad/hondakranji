@@ -22,7 +22,7 @@
 						<div class="row no-gutters">
 							<div class="col-xl-12">
 								<div class="auth-form">
-									<h4 class="text-center mb-4">Selamat datang di Atoze Capital</h4>
+									<h4 class="text-center mb-4">Selamat datang di Honda Kranji</h4>
 									<p class="text-center">Silahkan masukan email login admin dan kata sandi. Ingat kredensial login yang Anda perlukan nanti untuk masuk ke akun Anda. Setelah langkah ini, Anda akan diarahkan ke halaman login aplikasi.</p>
 									<form action="<?php echo admin_url('login') ?>" method="POST">
 										<?php echo  form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash());  ?>
